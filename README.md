@@ -1,3 +1,3 @@
 # PokeDex App
 
-# Trying to fix Heroku
+# Trying to fix Heroku.
