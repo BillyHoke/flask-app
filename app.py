@@ -1,9 +1,7 @@
 from flask import Flask, render_template, request, redirect
 import os
-from flask.scaffold import _matching_loader_thinks_module_is_package
 import psycopg2
 import requests
-from requests import api
 
 DB_URL = os.environ.get("DATABASE_URL", "dbname=project_2")
 SECRET_KEY = os.environ.get("SECRET_KEY", "MY_SECRET_KEY")
