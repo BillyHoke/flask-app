@@ -1,7 +1,7 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, Request
+import requests
 import os
 import psycopg2
-import requests
 
 DB_URL = os.environ.get("DATABASE_URL", "dbname=project_2")
 SECRET_KEY = os.environ.get("SECRET_KEY", "MY_SECRET_KEY")
