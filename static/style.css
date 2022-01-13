@@ -1,0 +1,41 @@
+h1 {
+    text-align: center;
+}
+
+#nav {
+    display: flex;
+    justify-content: space-evenly;
+    width: 400px;
+    margin: 0 auto;
+}
+
+#search-field {
+    display: flex;
+    width: 400px;
+    margin: 0 auto;
+    padding-top: 25px;
+    justify-content: center;
+}
+
+#pokedex-wrapper {
+    display: flex;
+    padding-left: 100px;
+    padding-right: 100px;
+    justify-content: center;
+    min-width: 768px;
+    margin: 0 auto;
+    margin-top: 50px;
+    flex-wrap: wrap;
+}
+
+.pokemon-front {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: grey;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    padding: 20px;
+    text-transform: capitalize;
+}
