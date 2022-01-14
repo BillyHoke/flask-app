@@ -2,6 +2,8 @@ from flask import Flask, render_template, request, redirect, Request
 import requests
 import os
 import psycopg2
+from controllers.user_controller import user_controller
+from controllers.session_controller import session_controller
 
 DB_URL = os.environ.get("DATABASE_URL", "dbname=project_2")
 SECRET_KEY = os.environ.get("SECRET_KEY", "MY_SECRET_KEY")
@@ -32,6 +34,9 @@ def search():
     pokemon_type = pokemon_data["types"]
     return render_template('pokemon.html', search_query=api_result, image=image, name=name, pokemon_type=pokemon_type)
 
+
+app.register_blueprint(user_controller)
+app.register_blueprint(session_controller)
 
 if __name__ == "__main__":
     app.run(port=5001, debug=True)
