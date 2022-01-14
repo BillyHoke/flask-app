@@ -14,7 +14,7 @@ app.config['SECRET_KEY'] = SECRET_KEY
 def index():
     i = 1
     pokemon = []
-    while i <= 151:
+    while i <= 15:
         api_result = f'https://pokeapi.co/api/v2/pokemon/{i}'
         pokemon_data = requests.get(api_result).json()
         pokemon.append(pokemon_data)
@@ -27,7 +27,10 @@ def search():
     search_query = request.values.get('query')
     api_result = f'https://pokeapi.co/api/v2/pokemon/{search_query}'
     pokemon_data = requests.get(api_result).json()
-    return render_template('pokemon.html', search_query=api_result, pokemon_image=pokemon_data["sprites"]["other"]["dream_world"]["front_default"], pokemon_name=pokemon_data["name"])
+    image = pokemon_data["sprites"]["other"]["dream_world"]["front_default"]
+    name = pokemon_data["name"]
+    pokemon_type = pokemon_data["types"]
+    return render_template('pokemon.html', search_query=api_result, image=image, name=name, pokemon_type=pokemon_type)
 
 
 if __name__ == "__main__":

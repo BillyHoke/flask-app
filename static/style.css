@@ -19,10 +19,9 @@ h1 {
 
 #pokedex-wrapper {
     display: flex;
-    padding-left: 100px;
-    padding-right: 100px;
     justify-content: center;
     min-width: 768px;
+    width: 80%;
     margin: 0 auto;
     margin-top: 50px;
     flex-wrap: wrap;
