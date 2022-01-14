@@ -23,4 +23,4 @@ def create_user():
         request.form.get("email"),
         hashed_password,
     )
-    return render_template("success.html")
+    return render_template("login.html")

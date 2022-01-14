@@ -29,7 +29,7 @@ def login():
         )
     if password_valid:
         session["user_id"] = user
-        return redirect("/")
+        return redirect("/index")
     else:
         return render_template(
             "/login.html", error="Incorrect password... Please try again."
