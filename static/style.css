@@ -38,3 +38,42 @@ h1 {
     padding: 20px;
     text-transform: capitalize;
 }
+
+.signup-login {
+    width: 300px;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+input {
+    padding: 5px;
+    margin: 5px 0;
+    border: 0;
+    border-bottom: 1px solid #eee;
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+    border-radius: 10px;
+    width: 100%;
+}
+
+button {
+    appearance: none;
+    -webkit-appearance: none;
+    padding: 10px;
+    border: none;
+    background-color: red;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 5px;
+    width: 50%;
+}
+
+.error {
+    color: red;
+    padding: 10px;
+    font-weight: 600;
+}
+
+#search-form {
+    width: 20vw;
+    margin: 0 auto;
+}

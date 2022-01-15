@@ -1,3 +1,4 @@
+import re
 from flask import Blueprint, request, redirect, render_template
 import bcrypt
 
@@ -15,7 +16,11 @@ def signup():
 
 @user_controller.route("/users", methods=["POST"])
 def create_user():
+    name = request.form.get('name')
+    email = request.form.get('email')
     password = request.form.get("password")
+    if name == '' or email == '' or password == '':
+        return render_template("signup.html", signup_error="Please enter all your details before proceeding.")
     hashed_password = bcrypt.hashpw(
         password.encode(), bcrypt.gensalt()).decode()
     insert_user(

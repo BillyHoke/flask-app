@@ -1,17 +1,18 @@
 {% extends "base.html" %} {% block content %}
     <body>
-        <div id="search-field">
-            <form action="/search" method="GET">
-                <input type="search" name="query" />
-                <input type="submit" value="Go!" />
+            <form id="search-form" action="/search" method="GET">
+                <div id="search-field"></div>
+                    <input class="search" type="search" name="query" placeholder="Search for a Pokemon within the orignial 151..." />
+                    <input type="submit" value="Go!">
+                </div>
             </form>
-        </div>
+            {{search_error}}
         <div id="pokedex-wrapper">
-            {% for results in pokemon %}
+            {% for result in pokemon %}
             <div class="pokemon-front">
-                <a href="/search?query={{results["id"]}}" /> <img
-                src="{{results["sprites"]["front_default"]}}" /></a>
-                {{results["name"]}}
+                <a href="/search?query={{result["id"]}}" /> <img
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{result["id"]}}.png" /></a>
+                {{result["name"]}}
             </div>
             {%endfor%}
         </div>
