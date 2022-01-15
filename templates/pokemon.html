@@ -5,5 +5,8 @@
     {%for types in pokemon_type%}
     <p>{{types["type"]["name"]}}</p>
     {%endfor%}
+    <form id="add-to-party" action="/add" method="POST">
+        <button type="submit">Add to Party!</button>
+    </form>
 </div>
 {%endblock%}

@@ -7,6 +7,11 @@
                 </div>
             </form>
             {{search_error}}
+            <div class="held-pokemon">
+            {%for pokemon in held_pokemon%}
+                <div id="party"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemon[0]}}.png" class="party-pokemon"/></div>
+            {%endfor%}
+            </div>
         <div id="pokedex-wrapper">
             {% for result in pokemon %}
             <div class="pokemon-front">

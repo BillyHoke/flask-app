@@ -1,4 +1,5 @@
 import database
+from flask import session
 
 
 def insert_user(name, email, password):
@@ -18,5 +19,5 @@ def get_user(id):
 
 
 def get_all_users():
-    results = database.sql_select("SELECT * FROM users")
+    results = database.sql_select("SELECT * FROM users", '')
     return results
