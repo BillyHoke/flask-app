@@ -1,9 +1,10 @@
+from crypt import methods
 from readline import insert_text
 from flask import Blueprint, request, redirect, render_template, session
 import requests
 import re
 
-from models.users_pokemon import get_pokemon, insert_pokemon
+from models.users_pokemon import delete_pokemon, get_pokemon, insert_pokemon, show_pokemon
 from models.users import get_user, get_all_users
 
 pokemon_controller = Blueprint(
@@ -25,26 +26,26 @@ def index():
     return render_template('index.html', pokemon=pokemon, held_pokemon=held_pokemon)
 
 
-@pokemon_controller.route("/search", methods=["GET"])
-def search():
-    search_query = request.values.get('query')
-    api_result = f'https://pokeapi.co/api/v2/pokemon/{search_query}'
+@pokemon_controller.route("/pokemon/<id>", methods=["GET"])
+def view(id):
+    api_result = f'https://pokeapi.co/api/v2/pokemon/{id}'
     pokemon_data = requests.get(api_result).json()
-    if pokemon_data["game_indices"][0]["version"]["name"] == "red":
-        pass
-    else:
-        return redirect("/index")
     image = pokemon_data["sprites"]["other"]["dream_world"]["front_default"]
     name = pokemon_data["name"]
     pokemon_type = pokemon_data["types"]
-    session["pokemon_id"] = request.args.get('query')
-    return render_template('pokemon.html', search_query=api_result, image=image, name=name, pokemon_type=pokemon_type)
+    pokemon_id = pokemon_data["id"]
+    return render_template('pokemon.html', image=image, name=name, pokemon_type=pokemon_type, pokemon_id=pokemon_id)
 
 
-@pokemon_controller.route('/add', methods=["GET", "POST"])
-def add_to_party():
-    pokemon_id = int(session["pokemon_id"])
+@pokemon_controller.route('/pokemon/<id>/edit', methods=["GET", "POST"])
+def add_to_party(id):
     user_id = session["user_id"][0]
-    insert_pokemon(user_id, pokemon_id)
-    del session["pokemon_id"]
+    insert_pokemon(user_id, id)
+    return redirect('/index')
+
+
+@pokemon_controller.route('/pokemon/<id>/delete', methods=["POST"])
+def destroy(id):
+    user_id = session["user_id"][0]
+    delete_pokemon(user_id, int(id))
     return redirect("/index")

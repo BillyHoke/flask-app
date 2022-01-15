@@ -1,21 +1,28 @@
 {% extends "base.html" %} {% block content %}
     <body>
-            <form id="search-form" action="/search" method="GET">
+            <!-- <form id="search-form" action="/search" method="GET">
                 <div id="search-field"></div>
                     <input class="search" type="search" name="query" placeholder="Search for a Pokemon within the orignial 151..." />
                     <input type="submit" value="Go!">
                 </div>
-            </form>
+            </form> -->
             {{search_error}}
             <div class="held-pokemon">
             {%for pokemon in held_pokemon%}
-                <div id="party"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemon[0]}}.png" class="party-pokemon"/></div>
+                <div id="party">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemon[0]}}.png" class="party-pokemon"/>
+                    <div>
+                        <form action="/pokemon/{{pokemon[0]}}/delete" method="POST">
+                        <input type="submit" value="Delete">
+                    </form>
+                    </div>
+                </div>
             {%endfor%}
             </div>
         <div id="pokedex-wrapper">
             {% for result in pokemon %}
             <div class="pokemon-front">
-                <a href="/search?query={{result["id"]}}" /> <img
+                <a href="/pokemon/{{result["id"]}}" /> <img
                 src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{result["id"]}}.png" /></a>
                 {{result["name"]}}
             </div>

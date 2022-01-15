@@ -99,3 +99,9 @@ button {
     width: 50px;
     height: 50px;
 }
+
+.pokemon-party {
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+}
