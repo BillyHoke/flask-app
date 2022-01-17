@@ -2,6 +2,16 @@ h1 {
     text-align: center;
 }
 
+#logo {
+    display: flex;
+    margin: 0 auto;
+    width: 300px;
+    height: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    justify-content: center;
+}
+
 #nav {
     display: flex;
     justify-content: space-evenly;
@@ -31,13 +41,20 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: grey;
+    background-color: #e3e3e3;
     width: 100px;
     height: 100px;
     margin: 10px;
     padding: 20px;
     text-transform: capitalize;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
 }
+
+/* .pokemon-front span {
+    background-color: rgb(199, 199, 199);
+    width: 141px;
+} */
 
 .signup-login {
     width: 300px;
@@ -67,6 +84,18 @@ button {
     width: 50%;
 }
 
+.add-button {
+    appearance: none;
+    -webkit-appearance: none;
+    padding: 10px;
+    border: none;
+    background-color: red;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 5px;
+    width: 70%;
+}
+
 .error {
     color: red;
     padding: 10px;
@@ -81,8 +110,9 @@ button {
 .held-pokemon {
     display: flex;
     width: 30vw;
+    padding-top: 20px;
     height: 60px;
-    background-color: red;
+    /* background-color: red; */
     margin: 0 auto;
     gap: 10px;
     justify-content: space-evenly;
@@ -104,4 +134,129 @@ button {
     display: flex;
     flex-direction: column;
     width: 100px;
+}
+
+.delete-button {
+    background-color: white;
+    width: 25px;
+    height: 25px;
+    border: 1px solid red;
+    border-radius: 50px;
+    color: red;
+    font-weight: 800;
+}
+
+.delete-button:hover {
+    background-color: red;
+    width: 25px;
+    border: 1px solid red;
+    border-radius: 50px;
+    color: white;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.pokemon-view {
+    display: flex;
+    width: 50%;
+    height: 28em;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    /* background-color: #e3e3e3; */
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    text-transform: capitalize;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+}
+
+.pokemon-view img {
+    width: 200px;
+    height: 200 px;
+}
+
+.pokemon-view span {
+    font-weight: 700;
+}
+
+#add-to-party {
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.detail-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 50%;
+    height: 2em;
+    margin: 0 auto;
+    text-transform: capitalize;
+    font-weight: 900;
+    font-size: 1.5em;
+    margin-top: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+}
+
+.detail-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+#pokemon-types {
+    display: inline-flex;
+    justify-content: center;
+    gap: 15px;
+    justify-content: center;
+}
+
+#pokemon-types span {
+    color: white;
+    width: 20%;
+    border: 1px black solid;
+    padding-top: 4px;
+}
+
+#pokemon-details {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+}
+
+#pokemon-details p {
+    margin: 2px;
+}
+
+#pokemon-details span {
+    background-color: beige;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.profile-data {
+    display: flex;
+    justify-content: space-evenly;
+    text-transform: none;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+}
+
+.item1 {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    transform: translateX(10px); /*D element Width[if needed]*/
 }

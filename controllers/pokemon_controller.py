@@ -1,5 +1,3 @@
-from crypt import methods
-from readline import insert_text
 from flask import Blueprint, request, redirect, render_template, session
 import requests
 import re
@@ -29,12 +27,24 @@ def index():
 @pokemon_controller.route("/pokemon/<id>", methods=["GET"])
 def view(id):
     api_result = f'https://pokeapi.co/api/v2/pokemon/{id}'
+    get_flavour_text = requests.get(
+        f'https://pokeapi.co/api/v2/pokemon-species/{id}').json()
     pokemon_data = requests.get(api_result).json()
-    image = pokemon_data["sprites"]["other"]["dream_world"]["front_default"]
+    image = pokemon_data["sprites"]["front_default"]
     name = pokemon_data["name"]
     pokemon_type = pokemon_data["types"]
     pokemon_id = pokemon_data["id"]
-    return render_template('pokemon.html', image=image, name=name, pokemon_type=pokemon_type, pokemon_id=pokemon_id)
+    pokemon_hp = pokemon_data["stats"][0]["base_stat"]
+    pokemon_attack = pokemon_data["stats"][1]["base_stat"]
+    pokemon_defense = pokemon_data["stats"][2]["base_stat"]
+    pokemon_speed = pokemon_data["stats"][3]["base_stat"]
+    pokemon_attspd = pokemon_data["stats"][4]["base_stat"]
+    pokemon_defspd = pokemon_data["stats"][5]["base_stat"]
+    pokemon_height = pokemon_data["height"]
+    pokemon_weight = pokemon_data["weight"]
+    flavour_text = get_flavour_text["flavor_text_entries"][00]["flavor_text"]
+    return render_template('pokemon.html', image=image, name=name, pokemon_type=pokemon_type, pokemon_id=pokemon_id, hp=pokemon_hp, attack=pokemon_attack, defense=pokemon_defense,
+                           speed=pokemon_speed, attspd=pokemon_attspd, defspd=pokemon_defspd, weight=pokemon_weight, height=pokemon_height, flavor_text=flavour_text)
 
 
 @pokemon_controller.route('/pokemon/<id>/edit', methods=["GET", "POST"])

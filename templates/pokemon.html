@@ -1,12 +1,61 @@
 {% extends "base.html" %} {% block content %}
-<div>
+
+<div class="detail-header" style="background-color: beige">{{name}}</div>
+<div class="pokemon-view">
     <img src="{{image}}" />
-    <p>{{name}}</p>
-    {%for types in pokemon_type%}
-    <p>{{types["type"]["name"]}}</p>
-    {%endfor%}
-    <form id="add-to-party" action="/pokemon/{{pokemon_id}}/edit" method="POST">
-        <button type="submit">Add to Party!</button>
+    <div class="detail-wrapper">
+        <div id="pokemon-types">
+            {%for types in pokemon_type%}
+                {% if types["type"]["name"] == "grass" %}
+                <span style="background-color: #8bc660">{{types["type"]["name"]}}</span>
+                {% elif types["type"]["name"] == "poison" %}
+                <span style="background-color: #94469b">{{types["type"]["name"]}}</span>
+                {% elif types["type"]["name"] == "fire" %}
+                <span style="background-color: #e18644">{{types["type"]["name"]}}</span>
+                {% elif types["type"]["name"] == "rock" %}
+                <span style="background-color: #b4a14b">{{types["type"]["name"]}}</span>
+                {% elif types["type"]["name"] == "water" %}
+                <span style="background-color: #708fe9">{{types["type"]["name"]}}</span>
+                {% elif types["type"]["name"] == "electric" %}
+                <span style="background-color: #f2d154">{{types["type"]["name"]}}</span>
+                {% elif types["type"]["name"] == "psychic" %}
+                <span style="background-color: #e66388">{{types["type"]["name"]}}</span>
+                {% elif types["type"]["name"] == "ground" %}
+                <span style="background-color: #dbc175">{{types["type"]["name"]}}</span>
+                {% elif types["type"]["name"] == "ice" %}
+                <span style="background-color: #a6d6d7">{{types["type"]["name"]}}</span>
+                {% elif types["type"]["name"] == "fighting" %}
+                <span style="background-color: #b13d31">{{types["type"]["name"]}}</span>
+                {% elif types["type"]["name"] == "ghost" %}
+                <span style="background-color: #6c5994">{{types["type"]["name"]}}</span>
+                {% elif types["type"]["name"] == "dragon" %}
+                <span style="background-color: #693bef">{{types["type"]["name"]}}</span>
+                {% elif types["type"]["name"] == "bug" %}
+                <span style="background-color: greenyellow">{{types["type"]["name"]}}</span>
+                {% elif types["type"]["name"] == "normal" %}
+                <span style="background-color: #a8a87d">{{types["type"]["name"]}}</span>
+                {% elif types["type"]["name"] == "fairy" %}
+                <span style="background-color: #e7b8bd">{{types["type"]["name"]}}</span>
+                {%endif%} {%endfor%}
+                <h2 style="margin: 0">#{{pokemon_id}}</h2>
+            </div>
+            <div id="pokemon-details">
+                <span>Pokemon Stats</span>
+                <p>HP: {{hp}}</p>
+                <p>Attack: {{attack}}</p>
+                <p>Defense: {{defense}}</p>
+                <p>Speed: {{speed}}</p>
+                <p>Spd Atk: {{attspd}}</p>
+                <p>Spd Def: {{defspd}}</p>
+                <span>Profile</span>
+                <div class="profile-data"><strong>Height: </strong>{{height}}<strong>Weight: </strong>{{weight}}kg</div>
+                <div class="profile-data" style="margin-top: 15px;">{{flavor_text}}</div>
+                    <form id="add-to-party" action="/pokemon/{{pokemon_id}}/edit" method="POST">
+        <button type="submit" class="add-button">Add to Party!</button>
     </form>
+            </div>
+        </div>
+    </form>
+    </div>
+    {%endblock%}
 </div>
-{%endblock%}
