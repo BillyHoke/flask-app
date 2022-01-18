@@ -13,12 +13,12 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = SECRET_KEY
 
 
-@app.route('/signup')
 @app.route('/')
+@app.route('/signup')
 def home():
     user_id = request.cookies.get('session')
     if user_id:
-        return redirect('/index')
+        return redirect('/')
     else:
         return render_template('signup.html')
 
