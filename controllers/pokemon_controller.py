@@ -44,6 +44,30 @@ def view(id):
     pokemon_defspd = pokemon_data["stats"][5]["base_stat"]
     pokemon_height = pokemon_data["height"]
     pokemon_weight = pokemon_data["weight"]
+    # Pokemon weight function
+    if pokemon_weight < 100:
+        pokemon_weight = list(str(pokemon_weight))
+        pokemon_weight.insert(1, '.')
+        pokemon_weight = "".join(pokemon_weight)
+    elif pokemon_weight < 999:
+        pokemon_weight = list(str(pokemon_weight))
+        pokemon_weight.insert(2, '.')
+        pokemon_weight = "".join(pokemon_weight)
+    elif pokemon_weight < 9999:
+        pokemon_weight = list(str(pokemon_weight))
+        pokemon_weight.insert(3, '.')
+        pokemon_weight = "".join(pokemon_weight)
+    # End function
+    # Pokemon height function
+    if pokemon_height < 10:
+        pokemon_height = list(str(pokemon_height))
+        pokemon_height.insert(0, '.')
+        pokemon_height = "".join(pokemon_height)
+    elif pokemon_height < 100:
+        pokemon_height = list(str(pokemon_height))
+        pokemon_height.insert(1, '.')
+        pokemon_height = "".join(pokemon_height)
+    # End function
     flavour_text = get_flavour_text["flavor_text_entries"][00]["flavor_text"]
     user_id = session["user_id"][0]
     held_pokemon = get_pokemon(user_id)
