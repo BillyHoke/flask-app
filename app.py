@@ -18,7 +18,7 @@ app.config['SECRET_KEY'] = SECRET_KEY
 def home():
     user_id = request.cookies.get('session')
     if user_id:
-        return redirect('/')
+        return redirect('/index')
     else:
         return render_template('signup.html')
 
