@@ -1,5 +1,4 @@
 {% extends "base.html" %} {% block content %}
-
 <div class="detail-header" style="background-color: beige">{{name}}</div>
 <div class="pokemon-view">
     <img src="{{image}}" />
@@ -50,9 +49,13 @@
                 <span>Profile</span>
                 <div class="profile-data"><strong>Height: </strong>{{height}}<strong>Weight: </strong>{{weight}}kg</div>
                 <div class="profile-data" style="margin-top: 15px;">{{flavor_text}}</div>
-                    <form id="add-to-party" action="/pokemon/{{pokemon_id}}/edit" method="POST">
-        <button type="submit" class="add-button">Add to Party!</button>
-    </form>
+                {% if held_pokemon|length  ==  6%}
+                <div class="error"><p>You can only hold 6 Pokemon at a time.</p></div>
+                {%else%}
+                <form id="add-to-party" action="/pokemon/{{pokemon_id}}/edit" method="POST">
+                    <button type="submit" class="add-button">Add to Party!</button>
+                </form>
+                {%endif%}
             </div>
         </div>
     </form>

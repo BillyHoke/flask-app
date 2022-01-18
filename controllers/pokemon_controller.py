@@ -20,8 +20,9 @@ def index():
             "https:\/\/pokeapi\.co\/api\/v2\/pokemon\/(\d+)\/", row['url'])[0]
         pokemon[index]["id"] = id
     user_id = session["user_id"][0]
+    user_name = session["user_id"][1]
     held_pokemon = get_pokemon(user_id)
-    return render_template('index.html', pokemon=pokemon, held_pokemon=held_pokemon)
+    return render_template('index.html', pokemon=pokemon, held_pokemon=held_pokemon, user_name=user_name)
 
 
 @pokemon_controller.route("/pokemon/<id>", methods=["GET"])
@@ -43,8 +44,10 @@ def view(id):
     pokemon_height = pokemon_data["height"]
     pokemon_weight = pokemon_data["weight"]
     flavour_text = get_flavour_text["flavor_text_entries"][00]["flavor_text"]
+    user_id = session["user_id"][0]
+    held_pokemon = get_pokemon(user_id)
     return render_template('pokemon.html', image=image, name=name, pokemon_type=pokemon_type, pokemon_id=pokemon_id, hp=pokemon_hp, attack=pokemon_attack, defense=pokemon_defense,
-                           speed=pokemon_speed, attspd=pokemon_attspd, defspd=pokemon_defspd, weight=pokemon_weight, height=pokemon_height, flavor_text=flavour_text)
+                           speed=pokemon_speed, attspd=pokemon_attspd, defspd=pokemon_defspd, weight=pokemon_weight, height=pokemon_height, flavor_text=flavour_text, held_pokemon=held_pokemon)
 
 
 @pokemon_controller.route('/pokemon/<id>/edit', methods=["GET", "POST"])

@@ -5,6 +5,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="/static/style.css" />
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+        </style>
         <title>Pokedex</title>
     </head>
     <header>
@@ -20,5 +23,7 @@
             {%endif%}
         </div>
     </header>
-    {%block content%} {%endblock%}
+    <body>
+        <div class="main-content">{%block content%} {%endblock%}</div>
+    </body>
 </html>

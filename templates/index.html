@@ -1,21 +1,46 @@
 {% extends "base.html" %} {% block content %}
-    <body>
             <!-- <form id="search-form" action="/search" method="GET">
                 <div id="search-field"></div>
                     <input class="search" type="search" name="query" placeholder="Search for a Pokemon within the orignial 151..." />
                     <input type="submit" value="Go!">
                 </div>
             </form> -->
-            {{search_error}}
+            <!-- {{search_error}} -->                
+            <div class="user_name" style="text-align: center; margin-top: 30px;"> {{user_name}}'s Dream Team</div>
             <div class="held-pokemon">
-            {%for pokemon in held_pokemon%}
+                {% if held_pokemon|length == 0%}
+                <img src="/static/images/pokeball.png" width="30px" height="30px"/>
+                <img src="/static/images/pokeball.png" width="30px" height="30px"/>
+                <img src="/static/images/pokeball.png" width="30px" height="30px"/>
+                <img src="/static/images/pokeball.png" width="30px" height="30px"/>
+                <img src="/static/images/pokeball.png" width="30px" height="30px"/>
+                <img src="/static/images/pokeball.png" width="30px" height="30px"/>
+                {% elif held_pokemon|length == 1%}
+                <img src="/static/images/pokeball.png" width="30px" height="30px"/>
+                <img src="/static/images/pokeball.png" width="30px" height="30px"/>
+                <img src="/static/images/pokeball.png" width="30px" height="30px"/>
+                <img src="/static/images/pokeball.png" width="30px" height="30px"/>
+                <img src="/static/images/pokeball.png" width="30px" height="30px"/>
+                {% elif held_pokemon|length == 2%}
+                <img src="/static/images/pokeball.png" width="30px" height="30px"/>
+                <img src="/static/images/pokeball.png" width="30px" height="30px"/>
+                <img src="/static/images/pokeball.png" width="30px" height="30px"/>
+                <img src="/static/images/pokeball.png" width="30px" height="30px"/>
+                {% elif held_pokemon|length == 3%}
+                <img src="/static/images/pokeball.png" width="30px" height="30px"/>
+                <img src="/static/images/pokeball.png" width="30px" height="30px"/>
+                <img src="/static/images/pokeball.png" width="30px" height="30px"/>
+                {% elif held_pokemon|length == 4%}
+                <img src="/static/images/pokeball.png" width="30px" height="30px"/>
+                <img src="/static/images/pokeball.png" width="30px" height="30px"/>
+                {% elif held_pokemon|length== 5%}
+                <img src="/static/images/pokeball.png" width="30px" height="30px"/>
+                {%endif%}
+                {%for pokemon in held_pokemon%}
                 <div id="party">
-                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemon[0]}}.png" class="party-pokemon"/>
-                    <div>
-                        <form action="/pokemon/{{pokemon[0]}}/delete" method="POST" style="text-align: center;">
-                        <input type="submit" class= "delete-button" value="X">
+                    <form action="/pokemon/{{pokemon[0]}}/delete" method="POST" style="text-align: center;">
+                        <input type="image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemon[0]}}.png" class="party-pokemon" alt="submit"/>
                     </form>
-                    </div>
                 </div>
             {%endfor%}
             </div>
@@ -28,5 +53,4 @@
             </div>
             {%endfor%}
         </div>
-    </body>
 {%endblock%}
