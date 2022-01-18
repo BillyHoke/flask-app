@@ -14,13 +14,13 @@ app.config['SECRET_KEY'] = SECRET_KEY
 
 
 @app.route('/')
-@app.route('/signup')
+@app.route('/login')
 def home():
     user_id = request.cookies.get('session')
     if user_id:
         return redirect('/index')
     else:
-        return render_template('signup.html')
+        return render_template('login.html')
 
 
 app.register_blueprint(user_controller)
