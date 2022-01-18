@@ -11,19 +11,25 @@
         <title>Pokedex</title>
     </head>
     <header>
-        <div id="logo"><img id="logo" src="/static/images/logo.png" /></div>
-        <div id="nav">
-            <a href="/">Home</a>
-            <a href="/about">About</a>
+        <!-- <div id="logo"><img id="logo" src="/static/images/logo.png" /></div> -->
+        <!-- <div id="nav"> -->
+        <div class="nav">
             {%if session["user_id"]%}
-            <a href="/party">Your Profile</a>
             <a href="/sessions/destroy">Logout</a>
             {%else%}
             <a href="/login">Login</a>
             {%endif%}
+            {%if session["user_id"]%}
+            <a href="/users/{{session["user_id"][0]}}">Your Profile</a>
+            {%endif%}
+            <a href="/about">About</a>
+            <a class="active" href="/index">Home</a>
+            <img src="/static/images/logo.png"/>
+        </div>
+
         </div>
     </header>
-    <body>
+    <body style="margin: 0px;">
         <div class="main-content">{%block content%} {%endblock%}</div>
     </body>
 </html>

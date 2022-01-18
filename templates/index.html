@@ -5,8 +5,11 @@
                     <input type="submit" value="Go!">
                 </div>
             </form> -->
-            <!-- {{search_error}} -->                
-            <div class="user_name" style="text-align: center; margin-top: 30px;"> {{user_name}}'s Dream Team</div>
+            <!-- {{search_error}} -->    
+            {%if trainer_name == None or trainer_name == ''%}   
+            {%else%}
+            <div class="user_name" style="text-align: center; margin-top: 30px;"> {{get_user_info[4]}}'s Dream Team</div>
+            {%endif%}
             <div class="held-pokemon">
                 {% if held_pokemon|length == 0%}
                 <img src="/static/images/pokeball.png" width="30px" height="30px"/>

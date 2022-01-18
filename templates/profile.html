@@ -1,0 +1,31 @@
+{% extends "base.html" %} {% block content %}
+<div class="signup-login">
+    <form action="/users/{{session["user_id"][0]}}/edit" method="POST">
+        <!-- <div class="error">{{error}} {{no_user}} {{no_details}}</div> -->
+        <h2>User Profile:</h2>
+        <div>
+            <label for="email">Trainer Name</label>
+            {%if trainer_name == None or trainer_name == ''%}
+            <input id="email" name="trainer_name" type="text" placeholder="Add a trainer name here..." />
+            {%else%}
+            <input id="email" name="trainer_name" type="text" placeholder="{{trainer_name}}" />
+            {%endif%}
+        </div>
+        <div>
+            <label for="email">Name</label>
+            <input id="email" name="email" type="text" value="{{name}}" />
+        </div>
+        <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="text" value="{{email}}" />
+        </div>
+        <!-- <div>
+            <label for="password">Password</label>
+            <input id="password" name="password" type="text" />
+        </div> -->
+        <div>
+            <button type="submit" name="login">Save</button>
+        </div>
+    </form>
+</div>
+{%endblock%}

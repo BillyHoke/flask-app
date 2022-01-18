@@ -21,3 +21,9 @@ def get_user(id):
 def get_all_users():
     results = database.sql_select("SELECT * FROM users", '')
     return results
+
+
+def update_user(trainer_name, user_id):
+    results = database.sql_write(
+        "update users set trainer_name=%s where id='%s';", [trainer_name, user_id])
+    return results

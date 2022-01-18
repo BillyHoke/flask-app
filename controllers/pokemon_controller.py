@@ -12,6 +12,8 @@ pokemon_controller = Blueprint(
 
 @pokemon_controller.route('/index', methods=["GET"])
 def index():
+    get_user_info = get_user(session["user_id"][2])
+    trainer_name = get_user_info[4]
     api_result = f'https://pokeapi.co/api/v2/pokemon/?limit=151'
     pokemon_data = requests.get(api_result).json()
     pokemon = pokemon_data["results"]
@@ -20,9 +22,8 @@ def index():
             "https:\/\/pokeapi\.co\/api\/v2\/pokemon\/(\d+)\/", row['url'])[0]
         pokemon[index]["id"] = id
     user_id = session["user_id"][0]
-    user_name = session["user_id"][1]
     held_pokemon = get_pokemon(user_id)
-    return render_template('index.html', pokemon=pokemon, held_pokemon=held_pokemon, user_name=user_name)
+    return render_template('index.html', pokemon=pokemon, held_pokemon=held_pokemon, get_user_info=get_user_info, trainer_name=trainer_name)
 
 
 @pokemon_controller.route("/pokemon/<id>", methods=["GET"])
