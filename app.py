@@ -23,6 +23,11 @@ def home():
         return render_template('login.html')
 
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
+
 app.register_blueprint(user_controller)
 app.register_blueprint(session_controller)
 app.register_blueprint(pokemon_controller)

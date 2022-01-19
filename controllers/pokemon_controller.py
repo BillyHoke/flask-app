@@ -68,7 +68,11 @@ def view(id):
         pokemon_height.insert(1, '.')
         pokemon_height = "".join(pokemon_height)
     # End function
-    flavour_text = get_flavour_text["flavor_text_entries"][00]["flavor_text"]
+    for flavour_text in get_flavour_text["flavor_text_entries"]:
+        if flavour_text["language"]["name"] == "en":
+            flavour_text = flavour_text["flavor_text"]
+            break
+    # flavour_text = get_flavour_text["flavor_text_entries"][00]["flavor_text"]
     user_id = session["user_id"][0]
     held_pokemon = get_pokemon(user_id)
     return render_template('pokemon.html', image=image, name=name, pokemon_type=pokemon_type, pokemon_id=pokemon_id, hp=pokemon_hp, attack=pokemon_attack, defense=pokemon_defense,

@@ -1,4 +1,19 @@
 {% extends "base.html" %} {% block content %}
+    <div style="text-align: center; margin: 0 auto;">
+        <h3>Your Current Pokemon Party!</h3>
+        {%if held_pokemon|length == 0%}
+        You don't have any Pokemon. Go back and add some to your party!
+        {%else%}
+        Click on a Pokemon to inspect it.
+        {%endif%}
+    </div>
+            <div class="held-pokemon">
+                {%for pokemon in held_pokemon%}
+                <div id="party">
+                    <a href="/pokemon/{{pokemon[0]}}"><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemon[0]}}.png" width="50px" height="50px"/></a>
+                </div>
+            {%endfor%}
+            </div>
 <div class="signup-login">
     <form action="/users/{{session["user_id"][0]}}/edit" method="POST">
         <!-- <div class="error">{{error}} {{no_user}} {{no_details}}</div> -->

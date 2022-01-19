@@ -7,37 +7,38 @@
             </form> -->
             <!-- {{search_error}} -->    
             {%if trainer_name == None or trainer_name == ''%}   
+            <div class="user_name" style="text-align: center; margin-top: 30px;">Your Dream Team! You can add a trainer name from the "your profile" page!</div>
             {%else%}
             <div class="user_name" style="text-align: center; margin-top: 30px;"> {{get_user_info[4]}}'s Dream Team</div>
             {%endif%}
             <div class="held-pokemon">
                 {% if held_pokemon|length == 0%}
-                <img src="/static/images/pokeball.png" width="30px" height="30px"/>
-                <img src="/static/images/pokeball.png" width="30px" height="30px"/>
-                <img src="/static/images/pokeball.png" width="30px" height="30px"/>
-                <img src="/static/images/pokeball.png" width="30px" height="30px"/>
-                <img src="/static/images/pokeball.png" width="30px" height="30px"/>
-                <img src="/static/images/pokeball.png" width="30px" height="30px"/>
+                <img src="/static/images/pokeball.png" width="40px" height="40px"/>
+                <img src="/static/images/pokeball.png" width="40px" height="40px"/>
+                <img src="/static/images/pokeball.png" width="40px" height="40px"/>
+                <img src="/static/images/pokeball.png" width="40px" height="40px"/>
+                <img src="/static/images/pokeball.png" width="40px" height="40px"/>
+                <img src="/static/images/pokeball.png" width="40px" height="40px"/>
                 {% elif held_pokemon|length == 1%}
-                <img src="/static/images/pokeball.png" width="30px" height="30px"/>
-                <img src="/static/images/pokeball.png" width="30px" height="30px"/>
-                <img src="/static/images/pokeball.png" width="30px" height="30px"/>
-                <img src="/static/images/pokeball.png" width="30px" height="30px"/>
-                <img src="/static/images/pokeball.png" width="30px" height="30px"/>
+                <img src="/static/images/pokeball.png" width="40px" height="40px"/>
+                <img src="/static/images/pokeball.png" width="40px" height="40px"/>
+                <img src="/static/images/pokeball.png" width="40px" height="40px"/>
+                <img src="/static/images/pokeball.png" width="40px" height="40px"/>
+                <img src="/static/images/pokeball.png" width="40px" height="40px"/>
                 {% elif held_pokemon|length == 2%}
-                <img src="/static/images/pokeball.png" width="30px" height="30px"/>
-                <img src="/static/images/pokeball.png" width="30px" height="30px"/>
-                <img src="/static/images/pokeball.png" width="30px" height="30px"/>
-                <img src="/static/images/pokeball.png" width="30px" height="30px"/>
+                <img src="/static/images/pokeball.png" width="40px" height="40px"/>
+                <img src="/static/images/pokeball.png" width="40px" height="40px"/>
+                <img src="/static/images/pokeball.png" width="40px" height="40px"/>
+                <img src="/static/images/pokeball.png" width="40px" height="40px"/>
                 {% elif held_pokemon|length == 3%}
-                <img src="/static/images/pokeball.png" width="30px" height="30px"/>
-                <img src="/static/images/pokeball.png" width="30px" height="30px"/>
-                <img src="/static/images/pokeball.png" width="30px" height="30px"/>
+                <img src="/static/images/pokeball.png" width="40px" height="40px"/>
+                <img src="/static/images/pokeball.png" width="40px" height="40px"/>
+                <img src="/static/images/pokeball.png" width="40px" height="40px"/>
                 {% elif held_pokemon|length == 4%}
-                <img src="/static/images/pokeball.png" width="30px" height="30px"/>
-                <img src="/static/images/pokeball.png" width="30px" height="30px"/>
+                <img src="/static/images/pokeball.png" width="40px" height="40px"/>
+                <img src="/static/images/pokeball.png" width="40px" height="40px"/>
                 {% elif held_pokemon|length== 5%}
-                <img src="/static/images/pokeball.png" width="30px" height="30px"/>
+                <img src="/static/images/pokeball.png" width="40px" height="40px"/>
                 {%endif%}
                 {%for pokemon in held_pokemon%}
                 <div id="party">

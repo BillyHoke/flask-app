@@ -294,3 +294,12 @@ button:hover {
     justify-content: space-evenly;
     text-transform: none;
 }
+
+.about-content {
+    margin: 0 auto;
+    text-align: center;
+}
+
+#pokemon-details span {
+    border: 1px solid black;
+}

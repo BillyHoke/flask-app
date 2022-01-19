@@ -1,5 +1,35 @@
 {% extends "base.html" %} {% block content %}
-<div class="detail-header" style="background-color: beige">{{name}}</div>
+                {% if pokemon_type[0]["type"]["name"] == "grass" %}
+                <div class="detail-header" style="background-color: #8bc660">{{name}}</div>
+                {% elif pokemon_type[0]["type"]["name"] == "poison" %}
+                <div class="detail-header" style="background-color: #94469b; color: white;">{{name}}</div>
+                {% elif pokemon_type[0]["type"]["name"] == "fire" %}
+                <div class="detail-header" style="background-color: #e18644">{{name}}</div>
+                {% elif pokemon_type[0]["type"]["name"] == "rock" %}
+                <div class="detail-header" style="background-color: #b4a14b">{{name}}</div>
+                {% elif pokemon_type[0]["type"]["name"] == "water" %}
+                <div class="detail-header" style="background-color: #708fe9">{{name}}</div>
+                {% elif pokemon_type[0]["type"]["name"] == "electric" %}
+                <div class="detail-header" style="background-color: #f2d154">{{name}}</div>
+                {% elif pokemon_type[0]["type"]["name"] == "psychic" %}
+                <div class="detail-header" style="background-color: #e66388">{{name}}</div>
+                {% elif pokemon_type[0]["type"]["name"] == "ground" %}
+                <div class="detail-header" style="background-color: #dbc175">{{name}}</div>
+                {% elif pokemon_type[0]["type"]["name"] == "ice" %}
+                <div class="detail-header" style="background-color: #a6d6d7">{{name}}</div>
+                {% elif pokemon_type[0]["type"]["name"] == "fighting" %}
+                <div class="detail-header" style="background-color: #b13d31; color: white;">{{name}}</div>
+                {% elif pokemon_type[0]["type"]["name"] == "ghost" %}
+                <div class="detail-header" style="background-color: #6c5994">{{name}}</div>
+                {% elif pokemon_type[0]["type"]["name"] == "dragon" %}
+                <div class="detail-header" style="background-color: #693bef; color: white;">{{name}}</div>
+                {% elif pokemon_type[0]["type"]["name"] == "bug" %}
+                <div class="detail-header" style="background-color: greenyellow">{{name}}</div>
+                {% elif pokemon_type[0]["type"]["name"] == "normal" %}
+                <div class="detail-header" style="background-color: #a8a87d">{{name}}</div>
+                {% elif pokemon_type[0]["type"]["name"] == "fairy" %}
+                <div class="detail-header" style="background-color: #e7b8bd">{{name}}</div>
+                {% endif %}
 <div class="pokemon-view">
     <img src="{{image}}" />
     <div class="detail-wrapper">
@@ -8,7 +38,7 @@
                 {% if types["type"]["name"] == "grass" %}
                 <span style="background-color: #8bc660">{{types["type"]["name"]}}</span>
                 {% elif types["type"]["name"] == "poison" %}
-                <span style="background-color: #94469b">{{types["type"]["name"]}}</span>
+                <span style="background-color: #94469b; color: white;">{{types["type"]["name"]}}</span>
                 {% elif types["type"]["name"] == "fire" %}
                 <span style="background-color: #e18644">{{types["type"]["name"]}}</span>
                 {% elif types["type"]["name"] == "rock" %}
@@ -24,11 +54,11 @@
                 {% elif types["type"]["name"] == "ice" %}
                 <span style="background-color: #a6d6d7">{{types["type"]["name"]}}</span>
                 {% elif types["type"]["name"] == "fighting" %}
-                <span style="background-color: #b13d31">{{types["type"]["name"]}}</span>
+                <span style="background-color: #b13d31; color: white;">{{types["type"]["name"]}}</span>
                 {% elif types["type"]["name"] == "ghost" %}
                 <span style="background-color: #6c5994">{{types["type"]["name"]}}</span>
                 {% elif types["type"]["name"] == "dragon" %}
-                <span style="background-color: #693bef">{{types["type"]["name"]}}</span>
+                <span style="background-color: #693bef; color: white;">{{types["type"]["name"]}}</span>
                 {% elif types["type"]["name"] == "bug" %}
                 <span style="background-color: greenyellow">{{types["type"]["name"]}}</span>
                 {% elif types["type"]["name"] == "normal" %}
@@ -39,14 +69,74 @@
                 <h2 style="margin: 0">#{{pokemon_id}}</h2>
             </div>
             <div id="pokemon-details">
-                <span>Pokemon Stats</span>
+                {% if pokemon_type[0]["type"]["name"] == "grass" %}
+                <span style="background-color: #8bc660">Pokemon Stats</span>
+                {% elif pokemon_type[0]["type"]["name"] == "poison" %}
+                <span style="background-color: #94469b; color: white;">Pokemon Stats</span>
+                {% elif pokemon_type[0]["type"]["name"] == "fire" %}
+                <span style="background-color: #e18644">Pokemon Stats</span>
+                {% elif pokemon_type[0]["type"]["name"] == "rock" %}
+                <span style="background-color: #b4a14b">Pokemon Stats</span>
+                {% elif pokemon_type[0]["type"]["name"] == "water" %}
+                <span style="background-color: #708fe9">Pokemon Stats</span>
+                {% elif pokemon_type[0]["type"]["name"] == "electric" %}
+                <span style="background-color: #f2d154">Pokemon Stats</span>
+                {% elif pokemon_type[0]["type"]["name"] == "psychic" %}
+                <span style="background-color: #e66388">Pokemon Stats</span>
+                {% elif pokemon_type[0]["type"]["name"] == "ground" %}
+                <span style="background-color: #dbc175">Pokemon Stats</span>
+                {% elif pokemon_type[0]["type"]["name"] == "ice" %}
+                <span style="background-color: #a6d6d7">Pokemon Stats</span>
+                {% elif pokemon_type[0]["type"]["name"] == "fighting" %}
+                <span style="background-color: #b13d31; color: white;">Pokemon Stats</span>
+                {% elif pokemon_type[0]["type"]["name"] == "ghost" %}
+                <span style="background-color: #6c5994">Pokemon Stats</span>
+                {% elif pokemon_type[0]["type"]["name"] == "dragon" %}
+                <span style="background-color: #693bef; color: white;">Pokemon Stats</span>
+                {% elif pokemon_type[0]["type"]["name"] == "bug" %}
+                <span style="background-color: greenyellow">Pokemon Stats</span>
+                {% elif pokemon_type[0]["type"]["name"] == "normal" %}
+                <span style="background-color: #a8a87d">Pokemon Stats</span>
+                {% elif pokemon_type[0]["type"]["name"] == "fairy" %}
+                <span style="background-color: #e7b8bd">Pokemon Stats</span>
+                {% endif %}
                 <p>HP: {{hp}}</p>
                 <p>Attack: {{attack}}</p>
                 <p>Defense: {{defense}}</p>
                 <p>Speed: {{speed}}</p>
                 <p>Spd Atk: {{attspd}}</p>
                 <p>Spd Def: {{defspd}}</p>
-                <span>Profile</span>
+                {% if pokemon_type[0]["type"]["name"] == "grass" %}
+                <span style="background-color: #8bc660">Profile</span>
+                {% elif pokemon_type[0]["type"]["name"] == "poison" %}
+                <span style="background-color: #94469b; color: white;">Profile</span>
+                {% elif pokemon_type[0]["type"]["name"] == "fire" %}
+                <span style="background-color: #e18644">Profile</span>
+                {% elif pokemon_type[0]["type"]["name"] == "rock" %}
+                <span style="background-color: #b4a14b">Profile</span>
+                {% elif pokemon_type[0]["type"]["name"] == "water" %}
+                <span style="background-color: #708fe9">Profile</span>
+                {% elif pokemon_type[0]["type"]["name"] == "electric" %}
+                <span style="background-color: #f2d154">Profile</span>
+                {% elif pokemon_type[0]["type"]["name"] == "psychic" %}
+                <span style="background-color: #e66388">Profile</span>
+                {% elif pokemon_type[0]["type"]["name"] == "ground" %}
+                <span style="background-color: #dbc175">Profile</span>
+                {% elif pokemon_type[0]["type"]["name"] == "ice" %}
+                <span style="background-color: #a6d6d7">Profile</span>
+                {% elif pokemon_type[0]["type"]["name"] == "fighting" %}
+                <span style="background-color: #b13d31; color: white;">Profile</span>
+                {% elif pokemon_type[0]["type"]["name"] == "ghost" %}
+                <span style="background-color: #6c5994">Profile</span>
+                {% elif pokemon_type[0]["type"]["name"] == "dragon" %}
+                <span style="background-color: #693bef; color: white;">Profile</span>
+                {% elif pokemon_type[0]["type"]["name"] == "bug" %}
+                <span style="background-color: greenyellow">Profile</span>
+                {% elif pokemon_type[0]["type"]["name"] == "normal" %}
+                <span style="background-color: #a8a87d">Profile</span>
+                {% elif pokemon_type[0]["type"]["name"] == "fairy" %}
+                <span style="background-color: #e7b8bd">Profile</span>
+                {% endif %}
                 <div class="profile-data"><strong>Height: </strong>{{height}}m<strong>Weight: </strong>{{weight}}kg</div>
                 <div class="profile-data" style="margin-top: 15px;">{{flavor_text}}</div>
                 {% if held_pokemon|length  ==  6%}

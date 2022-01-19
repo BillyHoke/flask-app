@@ -4,6 +4,7 @@ from flask import Blueprint, request, redirect, render_template, session
 import bcrypt
 
 from models.users import insert_user, get_user, update_user
+from models.users_pokemon import get_pokemon
 
 user_controller = Blueprint(
     "user_controller", __name__, template_folder="../templates/users"
@@ -39,7 +40,8 @@ def show_user(id):
     name = session["user_id"][1]
     email = session["user_id"][2]
     trainer_name = get_user_info[4]
-    return render_template('profile.html', name=name, email=email, trainer_name=trainer_name, get_user_info=get_user_info)
+    held_pokemon = get_pokemon(id)
+    return render_template('profile.html', name=name, email=email, trainer_name=trainer_name, get_user_info=get_user_info, held_pokemon=held_pokemon)
 
 
 @user_controller.route('/users/<id>/edit', methods=["GET", "POST"])
