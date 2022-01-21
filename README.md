@@ -15,17 +15,20 @@ PokeDex.GA is an app where users can take a trip down memory lane and browse thr
 https://frozen-spire-76029.herokuapp.com/
 
 # :man_technologist: Technology used
-- Languages
-    - HTML
-    - CSS
-    - Python
-- Frameworks
-    - Flask
-    - Jinja2
-- Version control
-    - Git
-- API
-    - PokeAPI.com
+**Languages**
+- HTML
+- CSS
+- Python
+
+**Frameworks**
+- Flask
+- Jinja2
+
+**Version control**
+- Git
+
+**API**
+- PokeAPI.com
 
 # :memo: Technical Requirements
 
