@@ -30,6 +30,7 @@
                 {% elif pokemon_type[0]["type"]["name"] == "fairy" %}
                 <div class="detail-header" style="background-color: #e7b8bd">{{name}}</div>
                 {% endif %}
+                {{error}}
 <div class="pokemon-view">
     <img src="{{image}}" />
     <div class="detail-wrapper">
@@ -140,7 +141,7 @@
                 <div class="profile-data"><strong>Height: </strong>{{height}}m<strong>Weight: </strong>{{weight}}kg</div>
                 <div class="profile-data" style="margin-top: 15px;">{{flavor_text}}</div>
                 {% if held_pokemon|length  ==  6%}
-                <div class="error"><p>You can only hold 6 Pokemon at a time.</p></div>
+                <div class="error"><p>You can only hold 6 Pokemon at a time. Remove some before trying to add more!</p></div>
                 {%else%}
                 <form id="add-to-party" action="/pokemon/{{pokemon_id}}/edit" method="POST">
                     <button type="submit" class="add-button">Add to Party!</button>

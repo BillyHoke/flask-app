@@ -2,24 +2,6 @@
     font-family: 'Quicksand', sans-serif;
 }
 
-/* #logo {
-    display: flex;
-    margin: 0 auto;
-    width: 300px;
-    height: auto;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    justify-content: center;
-} */
-
-/* #nav {
-    display: flex;
-    justify-content: space-evenly;
-    width: 400px;
-    margin: 0 auto;
-} */
-
-/* Navigation */
 .nav {
     overflow: hidden;
     background-color: #333;
@@ -38,11 +20,6 @@
     background-color: #ffcc00;
     color: black;
 }
-
-/* .nav a.active {
-    background-color: #04aa6d;
-    color: white;
-} */
 
 .nav img {
     width: 170px;
@@ -83,11 +60,6 @@
     text-align: center;
 }
 
-/* .pokemon-front span {
-    background-color: rgb(199, 199, 199);
-    width: 141px;
-} */
-
 .signup-login {
     width: 300px;
     padding: 20px;
@@ -125,9 +97,9 @@ button:hover {
     appearance: none;
     -webkit-appearance: none;
     padding: 10px;
-    border: none;
-    background-color: red;
-    color: #fff;
+    border: 1px solid green;
+    background-color: white;
+    color: green;
     font-weight: 600;
     border-radius: 5px;
     width: 70%;
@@ -135,7 +107,9 @@ button:hover {
 }
 
 .add-button:hover {
-    background-color: #0075be;
+    background-color: green;
+    border: 1px solid rgb(0, 167, 0);
+    color: white;
 }
 
 .error {
@@ -287,6 +261,7 @@ button:hover {
     margin-bottom: 5px;
     padding-top: 4px;
     padding-bottom: 4px;
+    border: 1px solid black;
 }
 
 .profile-data {
@@ -300,6 +275,28 @@ button:hover {
     text-align: center;
 }
 
-#pokemon-details span {
-    border: 1px solid black;
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    top: 125%;
+    left: 50%;
+    margin-left: -60px;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+    font-size: 14px;
 }

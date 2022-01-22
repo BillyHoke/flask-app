@@ -41,10 +41,13 @@
                 <img src="/static/images/pokeball.png" width="40px" height="40px"/>
                 {%endif%}
                 {%for pokemon in held_pokemon%}
-                <div id="party">
-                    <form action="/pokemon/{{pokemon[0]}}/delete" method="POST" style="text-align: center;">
-                        <input type="image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemon[0]}}.png" class="party-pokemon" alt="submit"/>
-                    </form>
+                <div class="tooltip">
+                    <div id="party">
+                        <span class="tooltiptext">Click to remove</span>
+                        <form action="/pokemon/{{pokemon[0]}}/delete" method="POST" style="text-align: center;">
+                            <input type="image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemon[0]}}.png" class="party-pokemon" alt="submit"/>
+                        </form>
+                    </div>
                 </div>
             {%endfor%}
             </div>
